@@ -8,7 +8,7 @@ import (
 
 const (
 	defaultVarcharSize = 191
-	autoIncrement     = "AUTO_INCREMENT"
+	autoIncrement      = "AUTO_INCREMENT"
 )
 
 // MySQL XXX
@@ -90,7 +90,7 @@ func (mysql MySQL) ToSQL(typeName string, size uint64) string {
 		return "TINYINT(1)"
 	case "text":
 		return "TEXT"
-	case "time.Time":
+	case "time.Time", "*time.Time":
 		return "DATETIME"
 	default:
 		log.Fatalf("%s is not match.", typeName)
